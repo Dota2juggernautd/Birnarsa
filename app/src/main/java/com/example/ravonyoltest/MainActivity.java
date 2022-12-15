@@ -2,6 +2,7 @@ package com.example.ravonyoltest;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.EntityIterator;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -9,12 +10,15 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private static final int pic_id = 123;
     // Define the button and imageview type variable
     Button camera_open_id;
+    EditText description;
     ImageView click_image_id;
 
     Button BSelectImage, BsendImage;
@@ -31,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         camera_open_id = findViewById(R.id.camera_button);
         click_image_id = findViewById(R.id.click_image);
         BSelectImage = findViewById(R.id.BSelectImage);
+        description = findViewById(R.id.description);
 
         // Camera_open button is for open the camera and add the setOnClickListener in this button
         camera_open_id.setOnClickListener(v -> {
@@ -47,7 +52,19 @@ public class MainActivity extends AppCompatActivity {
                 imageChooser();
             }
         });
-        sendMessage();
+        BsendImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (click_image_id.getDrawable() == null && description.getText().toString().equals(savedInstanceState.isEmpty())){
+                    Toast.makeText(MainActivity.this, "Пусто", Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(MainActivity.this, "Ваша даный оправленый", Toast.LENGTH_SHORT).show();
+                    click_image_id.setImageBitmap(null);
+                    description.setText("");
+                }
+            }
+        });
+
 
     }
 
@@ -98,17 +115,18 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void sendMessage() {
-        if (null != click_image_id.getDrawable()) {
-            //imageview has image
-            camera_open_id.setVisibility(View.GONE);
-            BSelectImage.setVisibility(View.GONE);
-            BsendImage.setVisibility(View.VISIBLE);
+//    public void sendMessage() {
+//        if (null == click_image_id.getDrawable()) {
+//            //imageview has image
+//            BsendImage.setVisibility(View.VISIBLE);
+//
+//        } else {
+//            //imageview has no image
+//            camera_open_id.setVisibility(View.GONE);
+//            BSelectImage.setVisibility(View.GONE);
+//
+//
+//        }
 
-        } else {
-            //imageview has no image
-
-        }
-
-    }
+//    }
 }
