@@ -28,7 +28,7 @@
         android:layout_height="50dp"
         android:layout_margin="50dp"
         android:backgroundTint="@color/black"
-        android:text="Send Data"
+        android:text="Yuborish"
 
         android:textColor="@color/white"
         android:textStyle="bold"
@@ -41,12 +41,12 @@
 
     <Button
         android:id="@+id/BSelectImage"
-        android:layout_width="110dp"
+        android:layout_width="120dp"
         android:layout_height="50dp"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="50dp"
         android:backgroundTint="@color/black"
-        android:text="Gallery"
+        android:text="Galereya"
         android:textColor="@android:color/white"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -66,7 +66,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Download photo..."
+        android:text="Rasimni yuklang..."
         android:textSize="12dp"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/click_image"
@@ -77,7 +77,7 @@
         android:id="@+id/description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Write description"
+        android:hint="Izoh yozing"
         app:layout_constraintBottom_toTopOf="@+id/sendImage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

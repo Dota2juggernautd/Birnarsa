@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         BsendImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (click_image_id.getDrawable() == null && description.getText().toString().equals(savedInstanceState.isEmpty())){
+                if (click_image_id.getDrawable() == null && description.getText().toString().equals("")){
                     Toast.makeText(MainActivity.this, "Пусто", Toast.LENGTH_SHORT).show();
                 }else {
                     Toast.makeText(MainActivity.this, "Ваша даный оправленый", Toast.LENGTH_SHORT).show();
@@ -99,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
             Bitmap photo = (Bitmap) data.getExtras().get("data");
             // Set the image in imageview for display
             click_image_id.setImageBitmap(photo);
+
         }
         if (resultCode == RESULT_OK) {
 
